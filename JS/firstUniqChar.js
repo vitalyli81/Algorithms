@@ -13,12 +13,11 @@
  * @return {number}
  */
 var firstUniqChar = function(s) {
-    var array = s.split('');
     var unique = new Set();
     var symHash = {};
 
-    for (let i = 0; i < array.length; i++ ) {
-      var el = array[i];
+    for (let i = 0; i < s.length; i++ ) {
+      var el = s.charAt(i);
 
       if (symHash[el] === undefined) {
         unique.add(el);
