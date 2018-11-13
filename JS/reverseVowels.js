@@ -1,4 +1,21 @@
 /**
+ * 
+ * Write a function that takes a string as input and reverse only the vowels of a string.
+ * 
+ * Example 
+ * 
+ * Input: "hello"
+ * Output: "holle"
+ * 
+ * Input: "hello world"
+ * Output: "hollo werld"
+ * 
+ * Input: "binary tree and graphs"
+ * Output: "banary tree and griphs"
+ * 
+ */
+
+/**
  * @param {string} s
  * @return {string}
  */

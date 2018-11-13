@@ -1,4 +1,21 @@
 /**
+ * 
+ * Given an integer, write a function to determine if it is a power of three.
+ * 
+ * Example
+ * 
+ * Input: 27
+ * Output: true
+ * 
+ * Input: 0
+ * Output: false
+ * 
+ * Input: 9
+ * Output: true
+ * 
+ */
+
+/**
  * @param {number} n
  * @return {boolean}
  */
