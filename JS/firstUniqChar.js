@@ -12,20 +12,20 @@
  * @param {string} s
  * @return {number}
  */
-var firstUniqChar = function(s) {
-    var unique = new Set();
-    var symHash = {};
+var firstUniqChar = function (s) {
+  var unique = new Set();
+  var symHash = {};
 
-    for (let i = 0; i < s.length; i++ ) {
-      var el = s.charAt(i);
+  for (let i = 0; i < s.length; i++) {
+    var el = s.charAt(i);
 
-      if (symHash[el] === undefined) {
-        unique.add(el);
-        symHash[el] = i;
-      } else {
-        unique.delete(el);
-      }
+    if (symHash[el] === undefined) {
+      unique.add(el);
+      symHash[el] = i;
+    } else {
+      unique.delete(el);
     }
+  }
 
-    return !unique.size && -1 || symHash[unique.values().next().value];
+  return !unique.size && -1 || symHash[unique.values().next().value];
 };
