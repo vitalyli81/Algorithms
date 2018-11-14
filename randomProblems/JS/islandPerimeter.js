@@ -32,27 +32,19 @@ var islandPerimeter = function(grid) {
       for (let j = 0; j < row.length; j++) {
         if (row[j]) {
           // left check
-          if (j === 0) {
-            perimeter += 1;
-          } else if (row[j - 1] === 0) {
+          if (j === 0 || row[j - 1] === 0) {
             perimeter += 1;
           }
           // rigth check
-          if (j === row.length - 1) {
-            perimeter += 1;
-          } else if (row[j + 1] === 0) {
+          if (j === row.length - 1 || row[j + 1] === 0) {
             perimeter += 1;
           }
           // top check
-          if (i === 0) {
-            perimeter += 1;
-          } else if (grid[i - 1][j] === 0) {
+          if (i === 0 || grid[i - 1][j] === 0) {
             perimeter += 1;
           }
           // bottom check
-          if (i === grid.length - 1) {
-            perimeter += 1;
-          } else if (grid[i + 1][j] === 0) {
+          if (i === grid.length - 1 || grid[i + 1][j] === 0) {
             perimeter += 1;
           }
         }
