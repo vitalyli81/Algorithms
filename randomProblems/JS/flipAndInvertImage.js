@@ -21,5 +21,35 @@
  * @return {number[][]}
  */
 var flipAndInvertImage = function(A) {
-    
+  var aLen = A.length;
+
+  for (let i = 0; i < aLen; i++) {
+    let rowEl = A[i];
+    let k = 0;
+    let l = rowEl.length - 1;
+
+    while (k <= l) {
+      let temp = A[i][k];
+      
+      A[i][k] = A[i][l];
+      A[i][l] = temp;
+      k++;
+      l--;
+    }
+  }
+  
+
+  for (let i = 0; i < aLen; i++) {
+    for (let j = 0; j < A[i].length; j++) {
+      let el = A[i][j];
+      if (el === 0) {
+        A[i][j] = 1;
+      } else {
+        A[i][j] = 0;
+      }
+    } 
+  }
+
+  return A;
+
 };
