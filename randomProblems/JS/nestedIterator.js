@@ -1,4 +1,17 @@
 /**
+ * 
+ * Given a nested list of integers, implement an iterator to flatten it.
+ * Each element is either an integer, or a list -- whose elements may also be integers or other lists.
+ * 
+ * Example:
+ * Input: [[1,1],2,[1,1]]
+ * Output: [1,1,2,1,1]
+ * 
+ * Explanation: By calling next repeatedly until hasNext returns false, 
+ * the order of elements returned by next should be: [1,1,2,1,1].
+ */
+
+/**
  * // This is the interface that allows for creating nested lists.
  * // You should not implement it, or speculate about its implementation
  * function NestedInteger() {
