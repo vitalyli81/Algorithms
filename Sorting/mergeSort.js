@@ -25,10 +25,9 @@ function mergeSort(A, start, end) {
 function merge(A, start, mid, end) {
   var len1 = mid - start + 1; //  length of left sub array
   var len2 = end - mid;  // length of right sub array
-
-  // creating 2 temp arrays
-  var a1 = Array(len1); // left
-  var a2 = Array(len2); // right
+  var a1 = Array(len1); // left temp array
+  var a2 = Array(len2); // right temp array
+  var i = 0, j = 0;
 
   // populating arrays 
   for (let k = 0; k < len1; k++) {
@@ -40,8 +39,6 @@ function merge(A, start, mid, end) {
     a2[l] = A[mid + l + 1];
   }
   a2.push(Infinity); // adding sentinel to the end
-
-  var i = 0, j = 0;
 
   for (let k = start; k <= end; k++) {
     if (a1[i] <= a2[j]) {
