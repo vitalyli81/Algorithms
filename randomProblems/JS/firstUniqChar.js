@@ -29,3 +29,4 @@ var firstUniqChar = function (s) {
 
   return !unique.size && -1 || symHash[unique.values().next().value];
 };
+ß

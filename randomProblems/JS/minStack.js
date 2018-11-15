@@ -21,51 +21,51 @@
 /**
  * initialize your data structure here.
  */
-var MinStack = function() {
+var MinStack = function () {
   this.stack = [];
-};
+};ß
 
 /** 
 * @param {number} x
 * @return {void}
 */
-MinStack.prototype.push = function(x) {
+MinStack.prototype.push = function (x) {
   var prev = this.stack.length ? this.stack[this.stack.length - 1].min : null;
   var min = prev;
 
   if (prev === null || x < prev) {
     min = x;
-  } 
-  
+  }
+
   this.stack.push({
     val: x,
     min: min
   });
-  
+
 };
 
 /**
 * @return {void}
 */
-MinStack.prototype.pop = function() {
+MinStack.prototype.pop = function () {
   this.stack.pop();
 };
 
 /**
 * @return {number}
 */
-MinStack.prototype.top = function() {
+MinStack.prototype.top = function () {
   return this.stack[this.stack.length - 1].val;
 };
 
 /**
 * @return {number}
 */
-MinStack.prototype.getMin = function() {
-  return this.stack.length && this.stack[this.stack.length - 1].min || null ;
+MinStack.prototype.getMin = function () {
+  return this.stack.length && this.stack[this.stack.length - 1].min || null;
 };
 
-MinStack.prototype.createNew = function() {
+MinStack.prototype.createNew = function () {
   return new MinStack();
 }
 /** 

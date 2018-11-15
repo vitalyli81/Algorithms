@@ -19,25 +19,25 @@
  * 
  */
 
-/**
+/**ß
  * @param {string} moves
  * @return {boolean}
  */
-var judgeCircle = function(moves) {
-    var array = moves.split('');
-    var horizontal = 0;
-    var vertical = 0;
+var judgeCircle = function (moves) {
+  var array = moves.split('');
+  var horizontal = 0;
+  var vertical = 0;
 
-    for (let i = 0; i < array.length; i++) {
-      let move = moves[i];
-      if (move === 'U') vertical += 1;
-      if (move === 'D') vertical -= 1;
-      if (move === 'R') horizontal += 1;
-      if (move === 'L') horizontal -= 1;
-    }
-    if (vertical === 0 && horizontal === 0) {
-      return true;
-    }
+  for (let i = 0; i < array.length; i++) {
+    let move = moves[i];
+    if (move === 'U') vertical += 1;
+    if (move === 'D') vertical -= 1;
+    if (move === 'R') horizontal += 1;
+    if (move === 'L') horizontal -= 1;
+  }
+  if (vertical === 0 && horizontal === 0) {
+    return true;
+  }
 
-    return false;
+  return false;
 };
