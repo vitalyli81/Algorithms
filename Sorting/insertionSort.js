@@ -1,6 +1,6 @@
 /**
  * JS implementation of Insertion sort. In-place sorting.
- * Worst case time scenation O(n^2).
+ * Worst case time scenario O(n^2).
  */
 
 /**
