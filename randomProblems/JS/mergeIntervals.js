@@ -34,10 +34,10 @@ var merge = function (intervals) {
 
   for (let i = 1; i < sortedIntervals.length; i++) {
     let resultLastElem = results[results.length - 1];
-    let currentElem = sortedIntervals[i];
+    let currentElemEnd = sortedIntervals[i].end;
 
-    if (resultLastElem.end >= sortedIntervals[i].start && resultLastElem.end < currentElem.end) {
-      resultLastElem.end = currentElem.end;
+    if (resultLastElem.end >= sortedIntervals[i].start && resultLastElem.end < currentElemEnd) {
+      resultLastElem.end = currentElemEnd;
     } else if (resultLastElem.end < sortedIntervals[i].start) {
       results.push(sortedIntervals[i]);
     }
