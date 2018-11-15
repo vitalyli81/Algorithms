@@ -23,32 +23,32 @@
  * @param {number[][]} grid
  * @return {number}
  */
-var islandPerimeter = function(grid) {
-    var perimeter = 0;
-    
-    for (let i = 0; i < grid.length; i++) {
-      let row = grid[i];
+var islandPerimeter = function (grid) {
+  var perimeter = 0;
 
-      for (let j = 0; j < row.length; j++) {
-        if (row[j]) {
-          // left check
-          if (j === 0 || row[j - 1] === 0) {
-            perimeter += 1;
-          }
-          // rigth check
-          if (j === row.length - 1 || row[j + 1] === 0) {
-            perimeter += 1;
-          }
-          // top check
-          if (i === 0 || grid[i - 1][j] === 0) {
-            perimeter += 1;
-          }
-          // bottom check
-          if (i === grid.length - 1 || grid[i + 1][j] === 0) {
-            perimeter += 1;
-          }
+  for (let i = 0; i < grid.length; i++) {
+    let row = grid[i];
+
+    for (let j = 0; j < row.length; j++) {
+      if (row[j]) {
+        // left check
+        if (j === 0 || row[j - 1] === 0) {
+          perimeter += 1;
+        }
+        // rigth check
+        if (j === row.length - 1 || row[j + 1] === 0) {
+          perimeter += 1;
+        }
+        // top check
+        if (i === 0 || grid[i - 1][j] === 0) {
+          perimeter += 1;
+        }
+        // bottom check
+        if (i === grid.length - 1 || grid[i + 1][j] === 0) {
+          perimeter += 1;
         }
       }
     }
-    return perimeter;
+  }
+  return perimeter;
 };

@@ -17,7 +17,7 @@ var InsertionSort = function (arr) {
     while (i >= 0 && arr[i] > key) {
       arr[i + 1] = arr[i]; // swap elems
       i--;
-      
+
     }
     arr[i + 1] = key;
   }

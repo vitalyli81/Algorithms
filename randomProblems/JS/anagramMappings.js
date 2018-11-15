@@ -16,18 +16,18 @@
  * @param {number[]} B
  * @return {number[]}
  */
-var anagramMappings = function(A, B) {
-    var hashB = {};
-    var anagramMappingsArray = [];
-    var len = A.length;
+var anagramMappings = function (A, B) {
+  var hashB = {};
+  var anagramMappingsArray = [];
+  var len = A.length;
 
-    for (let i = 0; i < len; i++) {
-      hashB[B[i]] = i;
-    }
+  for (let i = 0; i < len; i++) {
+    hashB[B[i]] = i;
+  }
 
-    for (let i = 0; i < len; i++) {
-      anagramMappingsArray.push(hashB[A[i]]);
-    }
+  for (let i = 0; i < len; i++) {
+    anagramMappingsArray.push(hashB[A[i]]);
+  }
 
-    return anagramMappingsArray;
+  return anagramMappingsArray;
 };

@@ -19,38 +19,38 @@
  * @param {string[]} emails
  * @return {number}
  */
-var numUniqueEmails = function(emails) {
-    var emailHash = {};
-    var result = 0;
+var numUniqueEmails = function (emails) {
+  var emailHash = {};
+  var result = 0;
 
-    for (let i = 0; i < emails.length; i++) {
-      let email = emails[i].split('@');
-      let localName = email[0];
-      let domainName = email[1];
-      let resume = true;
-      let tempEmail = '';
-      let tempLocalName = '';
-      
-      for (let j = 0; j < localName.length && resume; j++) {
-        let char = localName.charAt(j);
+  for (let i = 0; i < emails.length; i++) {
+    let email = emails[i].split('@');
+    let localName = email[0];
+    let domainName = email[1];
+    let resume = true;
+    let tempEmail = '';
+    let tempLocalName = '';
 
-        if (char === '+') {
-          resume = false;
-        };
+    for (let j = 0; j < localName.length && resume; j++) {
+      let char = localName.charAt(j);
 
-        if (char !== '.' && char !== '+') {
-          tempLocalName += char;
-        }
+      if (char === '+') {
+        resume = false;
+      };
+
+      if (char !== '.' && char !== '+') {
+        tempLocalName += char;
       }
-      
-      tempEmail = tempLocalName + '@' + domainName;
-      
-      if (!emailHash[tempEmail]) {
-        emailHash[tempEmail] = 1;
-        result += 1;
-      }
-      
     }
 
-    return result;
+    tempEmail = tempLocalName + '@' + domainName;
+
+    if (!emailHash[tempEmail]) {
+      emailHash[tempEmail] = 1;
+      result += 1;
+    }
+
+  }
+
+  return result;
 };

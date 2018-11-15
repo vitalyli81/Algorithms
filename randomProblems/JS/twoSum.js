@@ -16,23 +16,23 @@
  * @param {number} target
  * @return {number[]}
  */
-var twoSum = function(nums, target) {
+var twoSum = function (nums, target) {
   var complementObj = {},
-      result = [],
-      length = nums.length;
-  
-  for (var i=0; i < length; i++) {
-      var el = nums[i];
-      var complement = target - el;
-      
-      if ( complementObj[el] !== undefined) {
-          result.push(complementObj[el]);
-          result.push(i);
-          break
-      }
-      
-      complementObj[complement] = i;
+    result = [],
+    length = nums.length;
+
+  for (var i = 0; i < length; i++) {
+    var el = nums[i];
+    var complement = target - el;
+
+    if (complementObj[el] !== undefined) {
+      result.push(complementObj[el]);
+      result.push(i);
+      break
+    }
+
+    complementObj[complement] = i;
   }
-  
+
   return result;
 };

@@ -22,12 +22,12 @@
  * cache.get(4);       // returns 4
  * 
  */
-
+ß
 
 /**
  * @param {number} capacity
  */
-var LRUCache = function(capacity) {
+var LRUCache = function (capacity) {
   this.capacity = capacity;
   this.newMap = new Map();
 };
@@ -36,7 +36,7 @@ var LRUCache = function(capacity) {
 * @param {number} key
 * @return {number}
 */
-LRUCache.prototype.get = function(key) {
+LRUCache.prototype.get = function (key) {
   var tempValue;
 
   if (this.newMap.has(key)) {
@@ -53,7 +53,7 @@ LRUCache.prototype.get = function(key) {
 * @param {number} value
 * @return {void}
 */
-LRUCache.prototype.put = function(key, value) {
+LRUCache.prototype.put = function (key, value) {
   if (this.newMap.has(key)) {
     this.newMap.delete(key);
     this.newMap.set(key, value);
@@ -67,7 +67,7 @@ LRUCache.prototype.put = function(key, value) {
   }
 };
 
-LRUCache.createNew = function(capacity) {
+LRUCache.createNew = function (capacity) {
   return new LRUCache(capacity);
 }
 

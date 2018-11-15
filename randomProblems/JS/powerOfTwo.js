@@ -26,7 +26,7 @@ var isPowerOfTwo = function (n) {
 
   var m = n;
   while (m % 2 === 0) {
-    m = m / 2; 
+    m = m / 2;
   }
   return m === 1 || false;
 };

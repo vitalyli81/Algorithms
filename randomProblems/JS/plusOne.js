@@ -34,7 +34,7 @@ var plusOne = function (digits) {
     if (currentEl === 9) {
       digits[i] = 0;
       carryOver = 1;
-      
+
       if (i === 0) {
         digits[i] = 1;
         digits.push(0);

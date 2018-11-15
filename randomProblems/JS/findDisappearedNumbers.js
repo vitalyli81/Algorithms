@@ -16,21 +16,21 @@
  * @param {number[]} nums
  * @return {number[]}
  */
-var findDisappearedNumbers = function(nums) {
-    var resultArray = [];
-    var tempArray = new Array(nums.length + 1);
+var findDisappearedNumbers = function (nums) {
+  var resultArray = [];
+  var tempArray = new Array(nums.length + 1);
 
-    for (let i = 0; i < nums.length; i++) {
-      let el = nums[i];
-      
-      tempArray[el] = el;
+  for (let i = 0; i < nums.length; i++) {
+    let el = nums[i];
+
+    tempArray[el] = el;
+  }
+
+  for (let i = 1; i < tempArray.length; i++) {
+    if (tempArray[i] === undefined) {
+      resultArray.push(i);
     }
+  }
 
-    for (let i = 1; i < tempArray.length; i++) {
-      if (tempArray[i] === undefined) {
-        resultArray.push(i);
-      }
-    }
-
-    return resultArray;
+  return resultArray;
 };

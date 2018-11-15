@@ -20,7 +20,7 @@
  * @param {number[][]} A
  * @return {number[][]}
  */
-var flipAndInvertImage = function(A) {
+var flipAndInvertImage = function (A) {
   var aLen = A.length;
 
   for (let i = 0; i < aLen; i++) {
@@ -30,14 +30,14 @@ var flipAndInvertImage = function(A) {
 
     while (k <= l) {
       let temp = A[i][k];
-      
+
       A[i][k] = A[i][l];
       A[i][l] = temp;
       k++;
       l--;
     }
   }
-  
+
 
   for (let i = 0; i < aLen; i++) {
     for (let j = 0; j < A[i].length; j++) {
@@ -47,7 +47,7 @@ var flipAndInvertImage = function(A) {
       } else {
         A[i][j] = 0;
       }
-    } 
+    }
   }
 
   return A;
