@@ -13,6 +13,7 @@ var InsertionSort = function (arr) {
     let key = arr[j]; // key to compare to
     let i = j - 1; // index of prev elem
 
+    // insert key into sorted sequence
     while (i >= 0 && arr[i] > key) {
       arr[i + 1] = arr[i]; // swap elems
       i--;
