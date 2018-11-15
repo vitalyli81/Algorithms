@@ -6,9 +6,13 @@
  */
 
 function mergeSort(A, start, end) {
-
+  if (start < end) {
+    var mid = Math.floor((start + end));
+    mergeSort(A, start, mid); // left
+    mergeSort(A, mid + 1, end); // right
+    merge(A, start, mid, end); // merge
+  }
 }
-
 
 /**
  * 
@@ -19,5 +23,5 @@ function mergeSort(A, start, end) {
  */
 
 function merge(A, start, mid, end) {
-
+  // implement merge here
 }
