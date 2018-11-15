@@ -25,15 +25,15 @@ var BSTIterator = function (root) {
   var iterator = function (root, array) {
     if (root && root.left) {
       iterator(root.left, array);
-  
+
     }
     if (root) {
       array.push(root.val);
     }
-    
+
     if (root && root.right) {
       iterator(root.right, array);
-    } 
+    }
   }
 
   iterator(root, this.sortedList);
