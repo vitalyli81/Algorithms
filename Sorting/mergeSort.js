@@ -34,12 +34,12 @@ function merge(A, start, mid, end) {
   for (let k = 0; k < len1; k++) {
     a1[k] = A[start + k];
   }
-  a1.push(Infinity); // adding senitnel to the end
+  a1.push(Infinity); // adding sentinel to the end
 
   for (let l = 0; l < len2; l++) {
     a2[l] = A[mid + l + 1];
   }
-  a2.push(Infinity); // adding senitnel to the end
+  a2.push(Infinity); // adding sentinel to the end
 
   var i = 0, j = 0;
 
