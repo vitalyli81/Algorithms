@@ -53,7 +53,7 @@ MaxPriorityQueue.prototype.heapExtractMax = function () {
 
 MaxPriorityQueue.prototype.heapIncrease = function (i, key) {
   var A = this.A;
-  var p = Math.floor(i / 2);
+  var p = Math.floor(i / 2); // parent index
 
   if (key < this.A[i]) return;
 
@@ -63,8 +63,8 @@ MaxPriorityQueue.prototype.heapIncrease = function (i, key) {
     let temp = A[p];
     A[p] = A[i];
     A[i] = temp;
-    i = p;
-    p = Math.floor(i / 2);
+    i = p; // changing i to parent index
+    p = Math.floor(i / 2); // new parent index
   }
 }
 
