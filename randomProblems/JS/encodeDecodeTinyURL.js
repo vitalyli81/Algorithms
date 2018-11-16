@@ -12,7 +12,7 @@
  * @return {string}
  */
 var encode = function(longUrl) {
-    var url = `http://tinyurl.com/${Math.random(100000000000000)}`;
+    var url = `http://tinyurl.com/${Math.random()*100000000000000}`;
     hash[url] =  `${longUrl}`;
 
     return url;
