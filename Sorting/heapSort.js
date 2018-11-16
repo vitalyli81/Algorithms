@@ -1,3 +1,11 @@
+/**
+ * 
+ * Heap sort implementation in JS
+ * 
+ * in- place sorting with Time complexity O(n log(n))
+ * 
+ */
+
 var maxHeapify = function (A, i) {
   var l = i === 0 ? 1 : 2 * i;
   var r = i === 0 ? 2 : 2 * i + 1;
