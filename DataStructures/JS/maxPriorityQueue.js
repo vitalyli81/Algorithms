@@ -12,8 +12,8 @@ MaxPriorityQueue.prototype.buildMaxHeap = function () {
 
 MaxPriorityQueue.prototype.maxHeapify = function (i) {
   var A = this.A;
-  var l = i === 0 ? 1 : 2 * i;
-  var r = i === 0 ? 2 : 2 * i + 1;
+  var l = i === 0 ? 1 : 2 * i; // left child index
+  var r = i === 0 ? 2 : 2 * i + 1; // right child index
   var largest = i;
   var temp;
 
@@ -34,14 +34,14 @@ MaxPriorityQueue.prototype.maxHeapify = function (i) {
 }
 
 MaxPriorityQueue.prototype.getHeapMax = function () {
+  if (this.heapSize < 1) return;
   return this.A[0];
 }
 
 MaxPriorityQueue.prototype.heapExtractMax = function () {
+  if (this.heapSize < 1) return;
   var A = this.A;
   var max;
-
-  if (this.heapSize < 1) return;
 
   max = A[0];
   A[0] = A[this.heapSize - 1];
@@ -52,6 +52,8 @@ MaxPriorityQueue.prototype.heapExtractMax = function () {
 }
 
 MaxPriorityQueue.prototype.heapIncrease = function (i, key) {
+  if (this.heapSize < 1) return;
+
   var A = this.A;
   var p = Math.floor(i / 2); // parent index
 
