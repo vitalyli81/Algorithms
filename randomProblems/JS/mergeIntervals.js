@@ -25,21 +25,20 @@
 var merge = function (intervals) {
   if (intervals.length === 0) return intervals;
 
-  var sortedIntervals;
   var results = [];
 
-  sortedIntervals = intervals.sort((a, b) => a.start - b.start);
+  intervals.sort((a, b) => a.start - b.start);
 
-  results.push(sortedIntervals[0]);
+  results.push(intervals[0]);
 
-  for (let i = 1; i < sortedIntervals.length; i++) {
+  for (let i = 1; i < intervals.length; i++) {
     let resultLastElem = results[results.length - 1];
-    let currentElemEnd = sortedIntervals[i].end;
+    let currentElemEnd = intervals[i].end;
 
-    if (resultLastElem.end >= sortedIntervals[i].start && resultLastElem.end < currentElemEnd) {
+    if (resultLastElem.end >= intervals[i].start && resultLastElem.end < currentElemEnd) {
       resultLastElem.end = currentElemEnd;
-    } else if (resultLastElem.end < sortedIntervals[i].start) {
-      results.push(sortedIntervals[i]);
+    } else if (resultLastElem.end < intervals[i].start) {
+      results.push(intervals[i]);
     }
   }
 
