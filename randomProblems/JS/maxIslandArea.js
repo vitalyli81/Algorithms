@@ -30,7 +30,7 @@ var dfsSearch = function (A, i, j) {
   if (i < 0 || j < 0 || i >= iLen || j >= jLen || A[i][j] == 0) return 0;
 
   A[i][j] = 0;
-  // check right 
+  
   var res = dfsSearch(A, i, j + 1) + dfsSearch(A, i, j - 1) + dfsSearch(A, i + 1, j) + dfsSearch(A, i - 1, j) + 1;
 
   return res;
