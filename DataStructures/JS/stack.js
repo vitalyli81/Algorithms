@@ -1,6 +1,6 @@
 /**
  * Stack data structure
- * Last in First out
+ * Firts in Last out
  */
 
 // implementation with Objects
