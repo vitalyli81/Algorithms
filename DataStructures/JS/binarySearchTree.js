@@ -58,10 +58,10 @@ BST.prototype.insert = function (val) {
   this.size++;
 }
 
-BST.prototype.findMin = function () {
+BST.prototype.findMin = function (node) {
   if (this.size === 0) return;
 
-  var x = this.root;
+  var x = node || this.root;
 
   while (x.left !== null) {
     x = x.left;
@@ -69,10 +69,10 @@ BST.prototype.findMin = function () {
   return x;
 }
 
-BST.prototype.findMax = function () {
+BST.prototype.findMax = function (node) {
   if (this.size === 0) return;
 
-  var x = this.root;
+  var x = node || this.root;
 
   while (x.right !== null) {
     x = x.right;
@@ -83,10 +83,10 @@ BST.prototype.findMax = function () {
 
 BST.prototype.search = function (val) {
   if (this.size === 0) return;
-  
+
   var x = this.root;
 
-  while (x !== null  && val !== x.val) {
+  while (x !== null && val !== x.val) {
     if (val < x.val) {
       x = x.left;
     } else {
@@ -97,3 +97,44 @@ BST.prototype.search = function (val) {
   return x;
 }
 
+BST.prototype.getSuccessor = function (val) {
+  var node = this.search(val);
+  var y;
+
+  if (!node) return;
+
+  if (node.right) {
+    return this.findMin(node.right);
+  }
+
+  y = node.p;
+
+  while (y !== null && y.right !== node) {
+    node = y;
+    y = y.p;
+  }
+
+  return y;
+
+}
+
+BST.prototype.findPredecessor = function (val) {
+  var node = this.search(val);
+  var y;
+
+  if (!node) return;
+
+  if (node.left) {
+    return this.findMax(node.left);
+  }
+
+  y = node.p;
+
+  while (y !== null && y.left !== node) {
+    node = y;
+    y = y.p;
+  }
+
+  return y;
+
+}
