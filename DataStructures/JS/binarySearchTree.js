@@ -59,6 +59,8 @@ BST.prototype.insert = function (val) {
 }
 
 BST.prototype.findMin = function () {
+  if (this.size === 0) return;
+
   var x = this.root;
 
   while (x.left !== null) {
@@ -68,6 +70,8 @@ BST.prototype.findMin = function () {
 }
 
 BST.prototype.findMax = function () {
+  if (this.size === 0) return;
+
   var x = this.root;
 
   while (x.right !== null) {
@@ -78,6 +82,8 @@ BST.prototype.findMax = function () {
 }
 
 BST.prototype.search = function (val) {
+  if (this.size === 0) return;
+  
   var x = this.root;
 
   while (x !== null  && val !== x.val) {
