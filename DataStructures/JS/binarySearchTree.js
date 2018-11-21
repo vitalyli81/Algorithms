@@ -23,11 +23,11 @@ BST.prototype.print = function () {
   this.traverse(this.root);
 }
 
-BST.prototype.traverse = function (x) {
-  if (x !== null) {
-    this.traverse(x.left);
-    console.log(x.val);
-    this.traverse(x.right);
+BST.prototype.traverse = function (node) {
+  if (node !== null) {
+    this.traverse(node.left);
+    console.log(node.val);
+    this.traverse(node.right);
   }
 }
 
