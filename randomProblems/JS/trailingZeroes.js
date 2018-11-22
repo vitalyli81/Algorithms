@@ -1,4 +1,9 @@
 /**
+ * 
+ *  Given an integer n, return the number of trailing zeroes in n!.} n 
+ */
+
+/**
  * @param {number} n
  * @return {number}
  */
@@ -15,5 +20,3 @@ var trailingZeroes = function (n) {
 
   return res;
 };
-
-trailingZeroes(5)
