@@ -18,7 +18,7 @@ var numIslands = function (grid) {
         result++;
         grid[r][c] = "0"; // mark as visited
 
-        // add coordinates to queue for fronier calculation
+        // add coordinates to queue for frontier calculation
         queue.enqueue({
           row: r,
           col: c
