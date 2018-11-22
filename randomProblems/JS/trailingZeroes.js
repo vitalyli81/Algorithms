@@ -3,8 +3,9 @@
  * @return {number}
  */
 var trailingZeroes = function (n) {
-  var res = 0
   if (n < 5) return 0;
+
+  var res = 0
 
   while (n > 4) {
     n = Math.floor(n / 5);
