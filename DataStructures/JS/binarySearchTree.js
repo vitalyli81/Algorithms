@@ -8,11 +8,11 @@ function Node(val) {
   this.p = null;
   this.right = null;
   this.left = null;
-  this.size = 0;
 }
 
 function BST() {
   this.root = null;
+  this.size = 0;
 }
 
 BST.prototype.size = function () {
