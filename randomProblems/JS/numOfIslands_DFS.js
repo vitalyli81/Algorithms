@@ -1,3 +1,5 @@
+// DFS solution
+
 /**
  * @param {character[][]} grid
  * @return {number}

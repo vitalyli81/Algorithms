@@ -30,4 +30,6 @@ Queue.prototype.dequeue = function () {
     this.tail = 0;
     this.head = 0;
   }
+
+  return elem;
 }
