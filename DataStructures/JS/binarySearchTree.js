@@ -138,3 +138,46 @@ BST.prototype.findPredecessor = function (val) {
   return y;
 
 }
+
+BST.prototype.delete = function (val) {
+  var node = this.search(val);
+  var y;
+
+  if (node.left === null) {
+    this.transplant(this, node, node.right);
+  } else if (node.right === null) {
+    this.transplant(this, node, node.left);
+  } else {
+    y = this.findMin(node.right);
+    if (y.p.val !== node.val) {
+      this.transplant(this, y, y.right);
+      y.right = node.right;
+      y.right.p = y;
+    }
+    this.transplant(this, node, y);
+    y.left = node.left;
+    y.left.p = y;
+  }
+
+  this.size--;
+
+  node.left = null;
+  node.right = null;
+  node.p = null;
+
+  return node;
+}
+
+BST.prototype.transplant = function (T, n1, n2) {
+  if (n1.p === null) {
+    T.root = n2;
+  } else if (n1.val === n1.p.left.val) {
+    n1.p.left = n2;
+  } else {
+    n1.p.right = n2;
+  }
+
+  if (n2) {
+    n2.p = n1.p;
+  }
+}
