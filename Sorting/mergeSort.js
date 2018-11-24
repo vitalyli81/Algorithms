@@ -5,6 +5,12 @@
  * @param {number} end 
  */
 
+function sort(A) {
+  if (!A || A.length < 2) return A;
+
+  mergeSort(A, 0, A.length - 1);
+}
+
 function mergeSort(A, start, end) {
   if (start < end) {
     var mid = Math.floor((start + end) / 2);
