@@ -43,7 +43,7 @@ var reverseVowels = function (s) {
     if (!vowelHash[el1]) {
       i++;
     } else if (!vowelHash[el2]) {
-        j--;
+      j--;
     } else {
       array[i] = el2;
       array[j] = el1;
