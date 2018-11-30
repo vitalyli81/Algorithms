@@ -42,15 +42,13 @@ var reverseVowels = function (s) {
 
     if (!vowelHash[el1]) {
       i++;
+    } else if (!vowelHash[el2]) {
+        j--;
     } else {
-      if (!vowelHash[el2]) {
-        j--;
-      } else {
-        array[i] = el2;
-        array[j] = el1;
-        i++;
-        j--;
-      }
+      array[i] = el2;
+      array[j] = el1;
+      i++;
+      j--;
     }
   }
 
