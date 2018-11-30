@@ -9,7 +9,7 @@
  * 
  * Input: 16
  * Output: true
- * Explanation: 24 = 16
+ * Explanation: 2^4 = 16
  * 
  * Input: 218
  * Output: false
