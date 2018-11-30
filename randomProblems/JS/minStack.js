@@ -23,7 +23,7 @@
  */
 var MinStack = function () {
   this.stack = [];
-};ß
+};
 
 /** 
 * @param {number} x
@@ -41,7 +41,6 @@ MinStack.prototype.push = function (x) {
     val: x,
     min: min
   });
-
 };
 
 /**
