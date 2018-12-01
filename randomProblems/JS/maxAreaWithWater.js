@@ -18,13 +18,14 @@
 var maxArea = function (height) {
   var result = 0,
     lIndex = 0,
-    rIndex = height.length - 1;
+    rIndex = height.length - 1,
+    lVal, rVal,
+    curLen = rIndex - lIndex;
 
-  while (lIndex < rIndex) {
-    let lVal = height[lIndex],
-      rVal = height[rIndex],
-      curLen = rIndex - lIndex;
-
+  while (curLen > 0) {
+    lVal = height[lIndex];
+    rVal = height[rIndex];
+    
     if (lVal > rVal) {
       result = Math.max(curLen * rVal, result);
       rIndex--;
@@ -32,6 +33,8 @@ var maxArea = function (height) {
       result = Math.max(curLen * lVal, result);
       lIndex++;
     }
+
+    curLen--;
   }
 
   return result;
