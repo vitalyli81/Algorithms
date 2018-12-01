@@ -19,19 +19,20 @@
 var twoSum = function (nums, target) {
   var complementObj = {},
     result = [],
-    length = nums.length;
+    stop = false;
+    i = 0;;
 
-  for (var i = 0; i < length; i++) {
+  while (i < nums.length && !stop) {
     var el = nums[i];
     var complement = target - el;
 
     if (complementObj[el] !== undefined) {
       result.push(complementObj[el]);
       result.push(i);
-      break
+      stop = true;
     }
-
     complementObj[complement] = i;
+    i++;
   }
 
   return result;
