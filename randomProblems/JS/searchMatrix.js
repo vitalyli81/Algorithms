@@ -33,12 +33,12 @@ var searchMatrix = function (matrix, target) {
   while (!result && rInd >= 0 && cInd <= matrix[0].length - 1) {
     let elem = matrix[rInd][cInd];
 
-    if (elem === target) result = true;
-
-    if (elem > target) {
-      rInd--;
-    } else {
+    if (elem === target) {
+      result = true;
+    } else if (elem < target) {
       cInd++;
+    } else {
+      rInd--;
     }
   }
 
