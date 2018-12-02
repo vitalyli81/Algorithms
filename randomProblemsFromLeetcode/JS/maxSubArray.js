@@ -17,21 +17,21 @@
  * @return {number}
  */
 var maxSubArray = function (nums) {
-  return findMaxSubArray(nums, 0, nums.length - 1).sum;
+  return findMaxSubArray(nums, 0, nums.length - 1);
 };
 
 function findMaxSubArray(A, low, high) {
   if (low === high) {
-    return { low, high, sum: A[low] };
+    return A[low];
   } else {
     var mid = Math.floor((low + high) / 2),
       leftMax = findMaxSubArray(A, low, mid),
       rightMax = findMaxSubArray(A, mid + 1, high),
       crossMax = findMaxCrossingSubArray(A, low, mid, high);
 
-    if (leftMax.sum >= rightMax.sum && leftMax.sum >= crossMax.sum) {
+    if (leftMax >= rightMax && leftMax >= crossMax) {
       return leftMax;
-    } else if (rightMax.sum >= leftMax.sum && rightMax.sum >= crossMax.sum) {
+    } else if (rightMax >= leftMax && rightMax >= crossMax) {
       return rightMax;
     } else {
       return crossMax;
@@ -41,15 +41,13 @@ function findMaxSubArray(A, low, high) {
 
 function findMaxCrossingSubArray(A, low, mid, high) {
   var leftSum = rightSum = Number.NEGATIVE_INFINITY,
-    sum = 0,
-    maxLeftInd, maxRightInd;
+    sum = 0;
 
   for (let i = mid; i >= low; i--) {
     sum += A[i];
 
     if (sum > leftSum) {
       leftSum = sum;
-      maxLeftInd = i;
     }
   }
   sum = 0;
@@ -58,13 +56,8 @@ function findMaxCrossingSubArray(A, low, mid, high) {
 
     if (sum > rightSum) {
       rightSum = sum;
-      maxRightInd = i;
     }
   }
 
-  return {
-    low: maxLeftInd,
-    high: maxRightInd,
-    sum: leftSum + rightSum
-  };
+  return leftSum + rightSum;
 }
