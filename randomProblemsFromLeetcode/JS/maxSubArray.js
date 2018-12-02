@@ -10,11 +10,6 @@
  * Follow up:
  * 
  * If you have figured out the O(n) solution, try coding another solution using the divide and conquer approach, which is more subtle.
- */
-
-/**
- * 
- * Divide and Conquer Method - O(n log n)
  * 
  */
 
@@ -22,23 +17,22 @@
  * @param {number[]} nums
  * @return {number}
  */
-
 var maxSubArray = function (nums) {
-  return findMaxSubArray(nums, 0, nums.length - 1);
+  return findMaxSubArray(nums, 0, nums.length - 1).sum;
 };
 
 function findMaxSubArray(A, low, high) {
   if (low === high) {
-    return A[low];
+    return { low, high, sum: A[low] };
   } else {
     var mid = Math.floor((low + high) / 2),
       leftMax = findMaxSubArray(A, low, mid),
       rightMax = findMaxSubArray(A, mid + 1, high),
       crossMax = findMaxCrossingSubArray(A, low, mid, high);
 
-    if (leftMax >= rightMax && leftMax >= crossMax) {
+    if (leftMax.sum >= rightMax.sum && leftMax.sum >= crossMax.sum) {
       return leftMax;
-    } else if (rightMax >= leftMax && rightMax >= crossMax) {
+    } else if (rightMax.sum >= leftMax.sum && rightMax.sum >= crossMax.sum) {
       return rightMax;
     } else {
       return crossMax;
@@ -48,13 +42,15 @@ function findMaxSubArray(A, low, high) {
 
 function findMaxCrossingSubArray(A, low, mid, high) {
   var leftSum = rightSum = Number.NEGATIVE_INFINITY,
-    sum = 0;
+    sum = 0,
+    maxLeftInd, maxRightInd;
 
   for (let i = mid; i >= low; i--) {
     sum += A[i];
 
     if (sum > leftSum) {
       leftSum = sum;
+      maxLeftInd = i;
     }
   }
   sum = 0;
@@ -63,8 +59,13 @@ function findMaxCrossingSubArray(A, low, mid, high) {
 
     if (sum > rightSum) {
       rightSum = sum;
+      maxRightInd = i;
     }
   }
 
-  return leftSum + rightSum;
+  return {
+    low: maxLeftInd,
+    high: maxRightInd,
+    sum: leftSum + rightSum
+  };
 }
