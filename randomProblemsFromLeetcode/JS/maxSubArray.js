@@ -16,6 +16,13 @@
  * @param {number[]} nums
  * @return {number}
  */
+
+/**
+ * 
+ * Divide and Conquer Method - O(n log n)
+ * 
+ */
+
 var maxSubArray = function (nums) {
   return findMaxSubArray(nums, 0, nums.length - 1);
 };
