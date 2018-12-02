@@ -13,14 +13,14 @@
  */
 
 /**
- * @param {number[]} nums
- * @return {number}
- */
-
-/**
  * 
  * Divide and Conquer Method - O(n log n)
  * 
+ */
+
+/**
+ * @param {number[]} nums
+ * @return {number}
  */
 
 var maxSubArray = function (nums) {
