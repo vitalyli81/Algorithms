@@ -16,7 +16,7 @@ var partition = function (A, s, e) {
   var y = s - 1;
   var temp;
 
-  for (let i = s; i < e - 1; i++) {
+  for (let i = s; i < e; i++) {
     if (A[i] <= pivot) {
       y++;
       //swap A[y] with A[i]
