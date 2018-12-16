@@ -97,7 +97,7 @@ BST.prototype.search = function (val) {
   return x;
 }
 
-BST.prototype.getSuccessor = function (val) {
+BST.prototype.findSuccessor = function (val) {
   var node = this.search(val);
   var y;
 
