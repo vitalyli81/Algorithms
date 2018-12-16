@@ -28,22 +28,11 @@ LinkedList.prototype.add = function (val) {
   this.length++;
 }
 
-LinkedList.prototype.remove = function () {
-  if (!this.head) return;
+LinkedList.prototype.removeNode = function (node) {
+  if (!node) return;
 
-  this.head = this.head.next;
-  this.head.prev = null;
-  this.length--;
-}
-
-LinkedList.prototype.removeValue = function (val) {
-  if (!this.head) return;
-
-  const nodeToRemove = this.search(val);
-  if (!nodeToRemove) return;
-
-  const next = nodeToRemove.next;
-  const prev = nodeToRemove.prev;
+  const next = node.next;
+  const prev = node.prev;
 
   if (next) {
     next.prev = prev;
@@ -54,9 +43,15 @@ LinkedList.prototype.removeValue = function (val) {
   } else {
     this.head = next;
   }
-  nodeToRemove.next = null;
-  nodeToRemove.prev = null;
+  node.next = null;
+  node.prev = null;
   this.length--;
+}
+
+LinkedList.prototype.removeNodeByValue = function (val) {
+  if (!this.head) return;
+
+  this.removeNode(this.search(val));
 }
 
 LinkedList.prototype.search = function (val) {
@@ -77,8 +72,8 @@ LinkedList.prototype.search = function (val) {
  * list1.add(2);
  * list1.add(3);
  * list1.add(4);
- * list1.remove(4);
+ * list1.removeNodeByValue(4);
  * list1.search(4);
  * list1.search(3);
- * list1.removeValue(2);
+ * list1.removeNodeByValue(2);
  */
