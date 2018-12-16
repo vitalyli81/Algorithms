@@ -78,12 +78,12 @@ MaxPriorityQueue.prototype.heapInsert = function (key) {
 
 
 /**
- * 
+ *
  * var maxPQ = new MaxPriorityQueue([1,4,7,9,5,2,7,9,23,98]);
  * maxPQ.getHeapMax(); // 98
- * maxPQ.heapExtractMax(); // 98 
+ * maxPQ.heapExtractMax(); // 98
  * maxPQ.heapExtractMax(); // 23
  * maxPQ.heapIncrease(4, 100);
  * maxPQ.heapInsert(200);
- * 
+ *
  */
