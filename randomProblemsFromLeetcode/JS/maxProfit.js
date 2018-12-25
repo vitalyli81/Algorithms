@@ -22,7 +22,7 @@ function maxProfit(A) {
 
   for (let i = 1; i < A.length; i++) {
     if (A[i] < A[i - 1]) {
-      buyPrice = A[i];  
+      buyPrice = A[i];
     }
 
     sellPrice = A[i];
