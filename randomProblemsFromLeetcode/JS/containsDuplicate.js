@@ -25,7 +25,7 @@ var containsDuplicate = function (nums) {
   var hash = {};
 
   for (let i = 0; i < nums.length; i++) {
-    if (nums[i] in hash) return true;
+    if (hash[nums[i]]) return true;
     hash[nums[i]] = 1;
   }
 
