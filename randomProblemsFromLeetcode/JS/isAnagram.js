@@ -21,7 +21,7 @@
  */
 
 function isAnagram(s1, s2) {
-  if (!s1 || !s2 || s1.length !== s2.length) return false;
+  if (s1.length !== s2.length) return false;
 
   var hash = {
     length: 0
