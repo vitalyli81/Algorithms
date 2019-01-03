@@ -25,7 +25,7 @@ function sieveOfEratosthenes(n) {
     var m = 0;
 
     if (tempArray[i] === undefined) {
-      for (let j = i * i; j < n; Math.pow(i, 2) + (m++) * i) {
+      for (let j = i * i; j < n; j = Math.pow(i, 2) + (m++) * i) {
         tempArray[j] = null;
       }
     }
