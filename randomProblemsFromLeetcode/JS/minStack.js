@@ -30,10 +30,9 @@ var MinStack = function () {
 * @return {void}
 */
 MinStack.prototype.push = function (x) {
-  var prev = this.stack.length ? this.stack[this.stack.length - 1].min : null;
-  var min = prev;
+  var min = this.stack.length ? this.stack[this.stack.length - 1].min : null;
 
-  if (prev === null || x < prev) {
+  if (min === null || x < min) {
     min = x;
   }
 
