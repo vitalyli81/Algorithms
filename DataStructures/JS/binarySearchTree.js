@@ -20,10 +20,10 @@ BST.prototype.size = function () {
 }
 
 BST.prototype.print = function () {
-  this.traverse(this.root);
+  this.traverseInOrderRecursive(this.root);
 }
 
-BST.prototype.traverseInOrder = function (node) {
+BST.prototype.traverseInOrderRecursive = function (node) {
   if (node !== null) {
     this.traverse(node.left);
     console.log(node.val);
