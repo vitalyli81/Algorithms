@@ -21,37 +21,29 @@
  * @return {boolean}
  */
 var isValid = function (s) {
-  var array = s.split('');
-  var isOpen = {
+  if (s.length % 2 !== 0) return false;
+  if (s.length == 0) return true;
+
+  var hash = {
     '{': '}',
     '[': ']',
     '(': ')'
   };
 
   var stack = [];
-  var isValid = true;
 
-  if (array.length == 0) {
-    return true;
-  }
-  if (s.length % 2 !== 0) {
-    return false;
-  }
-
-  for (let i = 0; i < array.length && isValid; i++) {
-    var currentEl = array[i];
+  for (let i = 0; i < s.length; i++) {
+    var currentEl = s.charAt(i);
     var lastStackElem = stack[stack.length - 1] || 0;
 
-    if (isOpen[currentEl]) {
-      stack.push(isOpen[currentEl]);
+    if (hash[currentEl]) {
+      stack.push(hash[currentEl]);
     } else if (lastStackElem === currentEl) {
       stack.pop();
     } else {
-      isValid = false;
+      return false;
     }
   }
 
-  if (stack.length) return false;
-
-  return isValid;
+  return !stack.length;
 };
