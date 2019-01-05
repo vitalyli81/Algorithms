@@ -1,6 +1,5 @@
 function memoize(fn) {
   var cache = {};
-  var slice = Array.prototype.slice;
 
   return function () {
     var key = JSON.stringify(arguments);
