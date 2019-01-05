@@ -29,10 +29,15 @@ var judgeCircle = function (moves) {
 
   for (let i = 0; i < moves.length; i++) {
     let move = moves.charAt(i);
-    if (move === 'U') vertical += 1;
-    if (move === 'D') vertical -= 1;
-    if (move === 'R') horizontal += 1;
-    if (move === 'L') horizontal -= 1;
+    if (move === 'U') {
+      vertical += 1;
+    } else if (move === 'D') {
+      vertical -= 1;
+    } else if (move === 'R') {
+      horizontal += 1;
+    } else if (move === 'L') {
+      horizontal -= 1;
+    }
   }
   if (vertical === 0 && horizontal === 0) {
     return true;
