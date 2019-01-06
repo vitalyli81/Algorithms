@@ -25,9 +25,9 @@ BST.prototype.print = function () {
 
 BST.prototype.traverseInOrderRecursive = function (node) {
   if (node !== null) {
-    this.traverse(node.left);
+    this.traverseInOrderRecursive(node.left);
     console.log(node.val);
-    this.traverse(node.right);
+    this.traverseInOrderRecursive(node.right);
   }
 }
 
