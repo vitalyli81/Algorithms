@@ -10,19 +10,17 @@
  */
 
 function fibonacci(index) {
-  if (index === 0) return 0;
-  if (index < 3) return 1;
-  if (index === 3) return 2;
+  if (index < 2) return 0;
 
-  var first = 1,
-    second = 2,
-    third = 3;
+  var first = 0,
+    second = 1,
+    third;
 
-  for (let i = 4; i <= index; i++) {
+  for (let i = 2; i <= index; i++) {
     third = first + second;
     first = second;
     second = third;
   }
 
-  return third;
+  return second;
 }
