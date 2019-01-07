@@ -21,14 +21,11 @@ var dailyTemperatures = function (T) {
   var result = Array(T.length);
 
   for (let i = T.length - 1; i >= 0; i--) {
-    while (stack.length && T[i] >= stack[stack.length - 1].val) {
+    while (stack.length && T[i] >= T[stack[stack.length - 1]]) {
       stack.pop();
     }
-    result[i] = !stack.length ? 0 : stack[stack.length -1].index - i;
-    stack.push({
-      val: T[i],
-      index: i
-    });
+    result[i] = !stack.length ? 0 : stack[stack.length -1] - i;
+    stack.push(i);
   }
 
   return result;
