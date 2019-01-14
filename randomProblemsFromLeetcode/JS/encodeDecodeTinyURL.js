@@ -12,29 +12,34 @@
  * @return {string}
  */
 
-var alphaNum = '1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-var hashShort = {};
-var hashLong = {};
+ function TinyURL () {
+  this.hashShort = {};
+  this.hashLong = {};
+ }
 
-function randomString(length, string) {
+ TinyURL.prototype.randomString = function (length) {
   var result = '';
+  var alphaNum = '1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
   for (let i = length; i > 0; i--) {
-    result += string[Math.floor(Math.random() * string.length)]
+    result += alphaNum[Math.floor(Math.random() * alphaNum.length)]
   }
 
   return result;
 }
 
-var encode = function (longUrl) {
-  if (hashLong[longUrl]) return hashLong[longUrl];
+
+
+TinyURL.prototype.encode = function (longUrl) {
+  if (this.hashLong[longUrl]) return this.hashLong[longUrl];
 
   var shortUrl = '';
 
-  while (!shortUrl || hashShort[shortUrl]) {
-    shortUrl = `http://tinyurl.com/${randomString(15, alphaNum)}`;
+  while (!shortUrl || this.hashShort[shortUrl]) {
+    shortUrl = `http://tinyurl.com/${this.randomString(15)}`;
   };
-  hashShort[shortUrl] = `${longUrl}`;
-  hashLong[longUrl] = shortUrl;
+  this.hashShort[shortUrl] = `${longUrl}`;
+  this.hashLong[longUrl] = shortUrl;
   return shortUrl;
 };
 
@@ -44,11 +49,6 @@ var encode = function (longUrl) {
  * @param {string} shortUrl
  * @return {string}
  */
-var decode = function (shortUrl) {
-  return hashShort[shortUrl];
+TinyURL.prototype.decode = function (shortUrl) {
+  return this.hashShort[shortUrl];
 };
-
-/**
- * Your functions will be called as such:
- * decode(encode(url));
- */
