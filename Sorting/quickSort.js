@@ -13,26 +13,25 @@ var quickSort = function (A, startIndex, endIndex) {
 
 var partition = function (A, s, e) {
   var pivot = A[e];
-  var y = s - 1;
+  var y = s; // pointer to index where we will save pivot value
   var temp;
 
   for (let i = s; i < e; i++) {
     if (A[i] <= pivot) {
-      y++;
       //swap A[y] with A[i]
       if (y !== i) {
         temp = A[y];
         A[y] = A[i];
         A[i] = temp;
       }
+      y++;
     }
   }
   // swap A[e] with A[y + 1]
-  if (e !== y + 1) {
-    temp = A[e];
-    A[e] = A[y + 1];
-    A[y + 1] = temp;
+  if (e !== y) {
+    A[e] = A[y];
+    A[y] = pivot;
   }
 
-  return y + 1;
+  return y;
 }
