@@ -12,29 +12,28 @@
  * @return {string}
  */
 
- function TinyURL () {
+function TinyURL() {
+  this.alphaNum = '1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
   this.hashShort = {};
   this.hashLong = {};
- }
+}
 
- TinyURL.prototype.randomString = function (length) {
+TinyURL.prototype.randomString = function (length, string) {
   var result = '';
-  var alphaNum = '1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
   for (let i = length; i > 0; i--) {
-    result += alphaNum[Math.floor(Math.random() * alphaNum.length)]
+    result += string[Math.floor(Math.random() * string.length)]
   }
 
   return result;
 }
 
 TinyURL.prototype.encode = function (longUrl) {
+  var shortUrl = '';
   if (this.hashLong[longUrl]) return this.hashLong[longUrl];
 
-  var shortUrl = '';
-
   while (!shortUrl || this.hashShort[shortUrl]) {
-    shortUrl = `http://tinyurl.com/${this.randomString(15)}`;
+    shortUrl = `http://tinyurl.com/${this.randomString(15, this.alphaNum)}`;
   };
   this.hashShort[shortUrl] = `${longUrl}`;
   this.hashLong[longUrl] = shortUrl;
