@@ -11,14 +11,32 @@
  * @param {string} longUrl
  * @return {string}
  */
-var encode = function(longUrl) {
-    var url = `http://tinyurl.com/${Math.random()*100000000000000}`;
-    hash[url] =  `${longUrl}`;
 
-    return url;
+var alphaNum = '1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+var hashShort = {};
+var hashLong = {};
+
+function randomString(length, string) {
+  var result = '';
+  for (let i = length; i > 0; i--) {
+    result += string[Math.floor(Math.random() * string.length)]
+  }
+
+  return result;
+}
+
+var encode = function (longUrl) {
+  if (hashLong[longUrl]) return hashLong[longUrl];
+  
+  var url = '';
+
+  while (!url || hashShort[url]) {
+    url = `http://tinyurl.com/${randomString(15, alphaNum)}`;
+  };
+  hashShort[url] = `${longUrl}`;
+  hashLong[longUrl] = url;
+  return url;
 };
-
-var hash = {};
 
 /**
  * Decodes a shortened URL to its original URL.
@@ -26,8 +44,8 @@ var hash = {};
  * @param {string} shortUrl
  * @return {string}
  */
-var decode = function(shortUrl) {
-    return hash[shortUrl];
+var decode = function (shortUrl) {
+  return hashShort[shortUrl];
 };
 
 /**
