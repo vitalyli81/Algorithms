@@ -27,15 +27,15 @@ function randomString(length, string) {
 
 var encode = function (longUrl) {
   if (hashLong[longUrl]) return hashLong[longUrl];
-  
-  var url = '';
 
-  while (!url || hashShort[url]) {
-    url = `http://tinyurl.com/${randomString(15, alphaNum)}`;
+  var shortUrl = '';
+
+  while (!shortUrl || hashShort[shortUrl]) {
+    shortUrl = `http://tinyurl.com/${randomString(15, alphaNum)}`;
   };
-  hashShort[url] = `${longUrl}`;
-  hashLong[longUrl] = url;
-  return url;
+  hashShort[shortUrl] = `${longUrl}`;
+  hashLong[longUrl] = shortUrl;
+  return shortUrl;
 };
 
 /**
