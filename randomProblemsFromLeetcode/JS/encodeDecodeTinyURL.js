@@ -28,8 +28,6 @@
   return result;
 }
 
-
-
 TinyURL.prototype.encode = function (longUrl) {
   if (this.hashLong[longUrl]) return this.hashLong[longUrl];
 
