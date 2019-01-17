@@ -20,18 +20,36 @@ BST.prototype.size = function () {
 }
 
 BST.prototype.print = function () {
-  this.traverseInOrderRecursive(this.root);
+  this.traverseInOrderRecursive(this.root, function(val) {
+    console.log(val);
+  });
 }
 
-BST.prototype.traverseInOrderRecursive = function (node) {
+BST.prototype.traverseInOrderRecursive = function (node, callback) {
   if (node !== null) {
-    this.traverseInOrderRecursive(node.left);
-    console.log(node.val);
-    this.traverseInOrderRecursive(node.right);
+    this.traverseInOrderRecursive(node.left, callback);
+    callback(node.val);
+    this.traverseInOrderRecursive(node.right, callback);
   }
 }
 
-BST.prototype.traverseInOrderIterative = function (node) {
+BST.prototype.traversePreOrderRecursive = function (node, callback) {
+  if (node !== null) {
+    callback(node.val);
+    this.traverseInOrderRecursive(node.left, callback);
+    this.traverseInOrderRecursive(node.right, callback);
+  }
+}
+
+BST.prototype.traversePostOrderRecursive = function (node, callback) {
+  if (node !== null) {
+    this.traverseInOrderRecursive(node.left, callback);
+    this.traverseInOrderRecursive(node.right, callback);
+    callback(node.val);
+  }
+}
+
+BST.prototype.traverseInOrderIterative = function (node, callback) {
   var current = node;
   var stack = [];
 
@@ -41,7 +59,7 @@ BST.prototype.traverseInOrderIterative = function (node) {
       current = current.left;
     }
     current = stack.pop();
-    console.log(current.val);
+    callback(current.val);
     current = current.right;
   }
 }
