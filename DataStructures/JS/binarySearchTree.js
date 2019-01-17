@@ -124,7 +124,7 @@ BST.prototype.findSuccessor = function (val) {
 
   y = node.p;
 
-  while (y !== null && y.right !== node) {
+  while (y !== null && y.right.val === node.val) {
     node = y;
     y = y.p;
   }
@@ -145,7 +145,7 @@ BST.prototype.findPredecessor = function (val) {
 
   y = node.p;
 
-  while (y !== null && y.left !== node) {
+  while (y !== null && y.left.val === node.val) {
     node = y;
     y = y.p;
   }
