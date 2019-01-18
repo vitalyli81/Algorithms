@@ -62,3 +62,15 @@ Graph.prototype.getVertices = function () {
 Graph.prototype.getAdjacencyList = function () {
   return this.adjacencyList;
 };
+
+Graph.prototype.toString = function () {
+  let s = '';
+
+  for (let i = 0; i < this.vertices.length; i++) {
+    const v = this.vertices[i];
+    s += `${v} => ${this.adjacencyList[v].toString()}`;
+    s += '\n';
+  }
+
+  return s;
+};
