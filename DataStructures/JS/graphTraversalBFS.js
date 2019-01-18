@@ -23,7 +23,8 @@
  * graph.addEdge('E', 'I');
  * 
  * 
- * breadthFirstSearch(graph, myVertices[0]);
+ * const shortestPathA = BFS(graph, myVertices[0]);
+ * console.log(shortestPathA);
  * 
  */
 
@@ -44,7 +45,7 @@ const initializeColor = function (vertices) {
   return color;
 };
 
-const breadthFirstSearch = function (graph, startVertex) {
+const BFS = function (graph, startVertex) {
   const vertices = graph.getVertices();
   const adjList = graph.getAdjacencyList();
   const color = initializeColor(vertices);
