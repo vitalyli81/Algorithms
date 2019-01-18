@@ -6,6 +6,7 @@ function CustomSet() {
 CustomSet.prototype.add = function (val) {
   if (!this.has(val)) {
     this.items[val] = val;
+    this.size++;
     return true;
   }
 
@@ -15,6 +16,7 @@ CustomSet.prototype.add = function (val) {
 CustomSet.prototype.delete = function (val) {
   if (this.has(val)) {
     delete this.items[val];
+    this.size--;
     return true;
   }
 
@@ -26,6 +28,7 @@ CustomSet.prototype.has = function (val) {
 };
 
 CustomSet.prototype.clear = function () {
+  this.size = 0;
   this.items = {};
 };
 
