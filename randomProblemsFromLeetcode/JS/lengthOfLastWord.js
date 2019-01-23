@@ -42,3 +42,23 @@ var lengthOfLastWord = function (s) {
 
   return array[array.length - 1].length;
 };
+
+// 3rd solution
+
+var lengthOfLastWord = function (s) {
+  if (!s) return 0;
+
+  var last = s.length - 1,
+    count = 0;
+
+  while (last >= 0 && s[last] === ' ') {
+    last--;
+  }
+
+  while (last >= 0 && s[last] !== ' ') {
+    last--;
+    count++;
+  }
+
+  return count;
+};

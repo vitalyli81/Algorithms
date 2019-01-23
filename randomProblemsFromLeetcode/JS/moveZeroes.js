@@ -20,13 +20,13 @@ Minimize the total number of operations.
  */
 var moveZeroes = function (nums) {
   var nonZeroIndex = 0;
-  var temp;
 
   for (let i = 0; i < nums.length; i++) {
     if (nums[i] !== 0) {
-      temp = nums[nonZeroIndex];
-      nums[nonZeroIndex] = nums[i];
-      nums[i] = temp;
+      if (nonZeroIndex !== i) {
+        nums[nonZeroIndex] = nums[i];
+        nums[i] = 0;
+      }
       nonZeroIndex++;
     }
   }
